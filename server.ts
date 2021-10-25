@@ -1,6 +1,8 @@
 import express, { Application, Router } from 'express';
 import bodyParser from 'body-parser';
-import todosRouter from './routers/TodosRouter';
+import productRouter from './routers/ProductRouter';
+import userRouter from './routers/UserRouter';
+import productTransactionRouter from './routers/ProductTransactionRouter';
 import pool from './dbconfig/dbconnector';
 
 class Server {
@@ -26,7 +28,9 @@ class Server {
     }
 
     private routerConfig() {
-        this.app.use('/todos', todosRouter);
+        this.app.use('/products', productRouter);
+        this.app.use('/users', userRouter);
+        this.app.use('/product_transaction', productTransactionRouter);
     }
 
     public start = (port: number) => {
