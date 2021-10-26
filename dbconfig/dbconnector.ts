@@ -2,6 +2,6 @@ import { Pool } from 'pg';
 
 export default new Pool ({
     max: 20,
-    connectionString: 'postgres://postgres:123abnkakashi@localhost:5432/appota',
+    connectionString: `postgres://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DATABASE}`,
     idleTimeoutMillis: 30000
 });
