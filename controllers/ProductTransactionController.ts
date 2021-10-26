@@ -1,24 +1,29 @@
-import pool from '../dbconfig/dbconnector';
+import pool from "../dbconfig/dbconnector";
 
 class ProductTransactionController {
   public async CreateTransaction(req, res) {
-		try {
-				const { user_id, product_id, price } = req.body;
-				const status = 0;
+    const { user_id, product_id, total_price } = req.body;
+    const status = 0;
 
-				const client = await pool.connect();
+    const client = await pool.connect();
 
-				let sql = `INSERT INTO Product_transaction(user_id, product_id, price, status)`;
-				sql += `VALUES (${user_id}, ${product_id}, ${price}, ${status})`;
+    try {
+      await client.query("BEGIN");
+      try {
+				let sql = `INSERT INTO Product_transaction(user_id, product_id, total_price, status)`;
+				sql += `VALUES (${user_id}, ${product_id}, ${total_price}, ${status})`;
 				const { rows } = await client.query(sql);
 				const data = rows;
 
-				client.release();
-
-				res.send(data);
-		} catch (error) {
-				res.status(500).send(error);
-		}
+				await client.query('COMMIT');
+				res.status(201).send(data);
+      } catch (error) {
+				await client.query('ROLLBACK');
+        res.status(500).send(error);
+      }
+    } finally {
+      client.release();
+    }
   }
 }
 

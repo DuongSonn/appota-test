@@ -5,7 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const TodosRouter_1 = __importDefault(require("./routers/TodosRouter"));
+const ProductRouter_1 = __importDefault(require("./routers/ProductRouter"));
+const UserRouter_1 = __importDefault(require("./routers/UserRouter"));
+const ProductTransactionRouter_1 = __importDefault(require("./routers/ProductTransactionRouter"));
 const dbconnector_1 = __importDefault(require("./dbconfig/dbconnector"));
 class Server {
     constructor() {
@@ -33,7 +35,9 @@ class Server {
         });
     }
     routerConfig() {
-        this.app.use('/todos', TodosRouter_1.default);
+        this.app.use('/products', ProductRouter_1.default);
+        this.app.use('/users', UserRouter_1.default);
+        this.app.use('/product_transaction', ProductTransactionRouter_1.default);
     }
 }
 exports.default = Server;
