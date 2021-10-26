@@ -5,6 +5,7 @@
 
 ## How to install
 Make sure you have [Nodejs](https://nodejs.org/en/download/) and npm install
+
 Install PostgresSQL and Redis
 
 Clone project:
