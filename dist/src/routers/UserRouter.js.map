@@ -1,1 +1,0 @@
-{"version":3,"file":"UserRouter.js","sourceRoot":"","sources":["../../../routers/UserRouter.ts"],"names":[],"mappings":";;;;;AAAA,qCAA0C;AAC1C,mFAA2D;AAE3D,MAAM,MAAM,GAAG,IAAA,gBAAM,GAAE,CAAC;AACxB,MAAM,cAAc,GAAG,IAAI,wBAAc,EAAE,CAAC;AAE5C,MAAM,CAAC,GAAG,CAAC,uBAAuB,EAAE,cAAc,CAAC,wBAAwB,CAAC,CAAC;AAE7E,kBAAe,MAAM,CAAC"}
