@@ -35,6 +35,7 @@ Run the server
 
 For production
 > npm run build
+
 > npm run start
 
 The server will be run on: [localhost:4000](localhost:4000)
