@@ -17,7 +17,7 @@ Install Nodejs Package
 > npm install
 
 Create .env file
-> USER=  
+> DB_USER=  
 > PASSWORD=  
 > PORT=  
 > HOST=  
